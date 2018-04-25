@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
       title: '番剧清单',
       theme: new ThemeData(
         primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: Colors.white,
       ),
       onGenerateRoute: initRouterGenerator(),
     );
