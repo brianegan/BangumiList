@@ -35,4 +35,10 @@ class AppTextStyles {
     color: AppColors.hint,
     fontWeight: _fontMedium,
   );
+
+  static const smallHint = const TextStyle(
+    fontSize: AppFontSize.small,
+    fontWeight: _fontBold,
+    color: AppColors.hint,
+  );
 }
