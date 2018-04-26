@@ -10,6 +10,7 @@ class AppTextStyles {
   static const itemUpdateEpisode = minor;
   static const itemEpisodeCount = minor;
   static const itemEpisodeTitle = hint;
+  static const itemTimelineTime = hint;
 
   static const titleBlack = const TextStyle(
     height: 0.8,
