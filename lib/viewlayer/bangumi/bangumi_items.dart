@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:bangumi_list/config/resources/res.dart';
+import 'package:bangumi_list/ui_framework.dart';
 
 /// 番剧条目 只展示信息
 class BangumiItem extends StatelessWidget {
@@ -146,7 +146,7 @@ class FollowBangumiItem extends StatelessWidget {
                       .copyWith(fontSize: AppFontSize.large),
                   maxLines: 2,
                 ),
-                new Container(height: 4.0),
+                new Container(height: 8.0),
                 new Text(
                   "更新至15话",
                   style: AppTextStyles.itemUpdateEpisode,
@@ -155,9 +155,8 @@ class FollowBangumiItem extends StatelessWidget {
             ),
             new Container(
               alignment: Alignment.centerRight,
-              child: new RaisedButton(
+              child: new FollowButton(
                 onPressed: () {},
-                child: new Text("追番"),
               ),
             ),
           ],

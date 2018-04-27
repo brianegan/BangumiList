@@ -6,6 +6,8 @@ class AppTextStyles {
   static const _fontMedium = FontWeight.w500;
   static const _fontBold = FontWeight.bold;
 
+  static const normal = primary;
+
   static const itemUpdateTime = hint;
   static const itemUpdateEpisode = minor;
   static const itemEpisodeCount = minor;
