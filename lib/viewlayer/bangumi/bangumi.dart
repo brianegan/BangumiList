@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:bangumi_list/ui_framework.dart';
 import 'bangumi_items.dart';
-import '../widget/widgets.dart';
-import 'package:bangumi_list/config/resources/res.dart';
+import 'package:bangumi_list/test_data.dart' as TEST;
 
 class BangumiPage extends StatelessWidget {
   final String id;
+  final BangumiVO _vo = TEST.testBangumiVO;
 
   BangumiPage(this.id);
 
@@ -39,21 +39,21 @@ class BangumiPage extends StatelessWidget {
     return new Container(
       height: 160.0,
       padding: new EdgeInsets.all(20.0),
-      child: new BangumiItem(),
+      child: new BangumiItem(_vo),
     );
   }
 
   Widget _list(BuildContext context) {
     return new ListView.builder(
       itemBuilder: _episode,
-      itemCount: 5,
+      itemCount: _vo.episodes.length,
     );
   }
 
   Widget _episode(BuildContext context, int index) {
     return new Container(
       margin: new EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
-      child: new EpisodeItem(),
+      child: new EpisodeItem(_vo.episodes[index]),
     );
   }
 
@@ -63,7 +63,7 @@ class BangumiPage extends StatelessWidget {
       decoration: new BoxDecoration(border: AppBorders.top),
       child: new Center(
         child: new Text(
-          "6天19小时30分 后更新",
+          _vo.updateCountDown,
           style: AppTextStyles.hint,
         ),
       ),

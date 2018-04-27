@@ -3,11 +3,14 @@ import 'ui_framework.dart';
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
-  final _store = new Store<AppState>(appReducer);
+  final Store<AppState> _store = new Store<AppState>(
+    appReducer,
+    initialState: new AppState(),
+  );
 
   @override
   Widget build(BuildContext context) {
-    return new StoreProvider(
+    return new StoreProvider<AppState>(
       store: _store,
       child: new MaterialApp(
         title: '番剧清单',

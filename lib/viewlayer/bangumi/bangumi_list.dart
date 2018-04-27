@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:bangumi_list/config/route/routes.dart';
-import 'package:bangumi_list/config/resources/res.dart';
+import 'package:bangumi_list/ui_framework.dart';
+
 import 'bangumi_items.dart';
 
 class BangumiListPage extends StatelessWidget {
@@ -56,18 +55,21 @@ class BangumiListPage extends StatelessWidget {
   }
 
   Widget _list(BuildContext context) {
-    return new Container(
-      child: new ListView.builder(
-        itemBuilder: _buildItem,
-        itemCount: 4,
-      ),
+    return new StoreConnector<AppState, BangumiListState>(
+      converter: (store) => store.state.bangumiListState,
+      builder: (ctx, state) => new Container(
+            child: new ListView.builder(
+              itemBuilder: (ctx, index) => _buildItem(ctx, state.list[index]),
+              itemCount: state.list.length,
+            ),
+          ),
     );
   }
 
-  Widget _buildItem(BuildContext context, int index) {
+  Widget _buildItem(BuildContext context, BangumiVO vo) {
     return new GestureDetector(
       onTap: () {
-        RouterUtils.gotoBangumi(context, index.toString());
+        RouterUtils.gotoBangumi(context, "0");
       },
       child: new Container(
         height: 124.0,
@@ -78,7 +80,7 @@ class BangumiListPage extends StatelessWidget {
           ),
         ),
         child: new Center(
-          child: new BangumiItem(),
+          child: new BangumiItem(vo),
         ),
       ),
     );

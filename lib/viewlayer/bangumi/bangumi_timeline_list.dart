@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:bangumi_list/config/resources/res.dart';
-
+import 'package:bangumi_list/ui_framework.dart';
 import 'bangumi_items.dart';
+
+import 'package:bangumi_list/test_data.dart' as TEST;
 
 class BangumiTimelineListPage extends StatelessWidget {
   @override
@@ -34,7 +34,7 @@ class _TimelineItem extends StatelessWidget {
             margin: new EdgeInsets.only(right: 10.0),
           ),
           new Expanded(
-            child: new FollowBangumiItem(),
+            child: new FollowBangumiItem(TEST.testBangumiVO),
           ),
         ],
       ),

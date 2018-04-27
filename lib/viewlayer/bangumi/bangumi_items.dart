@@ -3,6 +3,10 @@ import 'package:bangumi_list/ui_framework.dart';
 
 /// 番剧条目 只展示信息
 class BangumiItem extends StatelessWidget {
+  final BangumiVO _vo;
+
+  BangumiItem(this._vo);
+
   @override
   Widget build(BuildContext context) {
     return new Container(
@@ -22,8 +26,7 @@ class BangumiItem extends StatelessWidget {
         decoration: new BoxDecoration(
           image: new DecorationImage(
             fit: BoxFit.cover,
-            image: new NetworkImage(
-                "https://pic2.zhimg.com/ae1f3d38dee8c352823bfae4b5afa884_1200x500.jpg"),
+            image: new NetworkImage(_vo.coverUrl),
           ),
         ),
       ),
@@ -39,19 +42,19 @@ class BangumiItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             new Text(
-              "末日时在做什么? 有没有空? 可以来拯救吗?",
+              _vo.title,
               style: AppTextStyles.titleBlack,
               maxLines: 2,
             ),
             new Container(height: 4.0),
             new Expanded(
               child: new Text(
-                "每周日 00:30更新",
+                _vo.updateTime,
                 style: AppTextStyles.itemUpdateTime,
               ),
             ),
             new Text(
-              "更新至15话",
+              _vo.updateEpisode,
               style: AppTextStyles.itemUpdateEpisode,
             ),
           ],
@@ -63,8 +66,12 @@ class BangumiItem extends StatelessWidget {
 
 /// 番剧分集条目
 class EpisodeItem extends StatelessWidget {
-  var _textPadding =
+  static const _textPadding =
       const EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0);
+
+  final EpisodeVO _vo;
+
+  EpisodeItem(this._vo);
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +86,7 @@ class EpisodeItem extends StatelessWidget {
             child: new Container(
               alignment: Alignment.centerLeft,
               child: new Text(
-                "第15话",
+                _vo.index,
                 maxLines: 1,
                 style: AppTextStyles.itemEpisodeCount,
               ),
@@ -89,7 +96,7 @@ class EpisodeItem extends StatelessWidget {
             child: new Container(
               alignment: Alignment.centerLeft,
               child: new Text(
-                "比翼鸟",
+                _vo.title,
                 maxLines: 1,
                 style: AppTextStyles.itemEpisodeTitle,
               ),
@@ -103,6 +110,10 @@ class EpisodeItem extends StatelessWidget {
 
 /// 选择追番的条目 有追番按钮
 class FollowBangumiItem extends StatelessWidget {
+  final BangumiVO _vo;
+
+  FollowBangumiItem(this._vo);
+
   @override
   Widget build(BuildContext context) {
     return new Container(
@@ -122,8 +133,7 @@ class FollowBangumiItem extends StatelessWidget {
         decoration: new BoxDecoration(
           image: new DecorationImage(
             fit: BoxFit.cover,
-            image: new NetworkImage(
-                "https://pic2.zhimg.com/ae1f3d38dee8c352823bfae4b5afa884_1200x500.jpg"),
+            image: new NetworkImage(_vo.coverUrl),
           ),
         ),
       ),
@@ -141,14 +151,14 @@ class FollowBangumiItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 new Text(
-                  "末日时在做什么? 有没有空? 可以来拯救吗?",
+                  _vo.title,
                   style: AppTextStyles.titleBlack
                       .copyWith(fontSize: AppFontSize.large),
                   maxLines: 2,
                 ),
                 new Container(height: 8.0),
                 new Text(
-                  "更新至15话",
+                  _vo.updateEpisode,
                   style: AppTextStyles.itemUpdateEpisode,
                 ),
               ],
