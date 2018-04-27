@@ -41,8 +41,7 @@ class FollowButton extends StatelessWidget {
   Decoration _bgDecoration() {
     return new BoxDecoration(
       borderRadius: const BorderRadius.all(const Radius.circular(15.0)),
-      gradient:
-          following ? AppGradientColors.appRed : AppGradientColors.appBlue,
+      gradient: AppGradientColors.selectButton(following),
     );
   }
 }

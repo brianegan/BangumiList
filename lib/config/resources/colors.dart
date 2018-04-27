@@ -21,9 +21,13 @@ class AppColors {
   static const Color primary = const Color(0xFF333333);
   static const Color minor = const Color(0xFF666666);
   static const Color hint = grey;
+
+  static selectUpdateEpisode(select) => select ? appRed : minor;
 }
 
 class AppGradientColors {
+
+  static selectButton(select) => select ? appRed : appBlue;
 
   static const LinearGradient appBlue = const LinearGradient(
     colors: [

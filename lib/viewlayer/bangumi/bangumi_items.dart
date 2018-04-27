@@ -41,21 +41,28 @@ class BangumiItem extends StatelessWidget {
         child: new Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            /// 番剧标题
             new Text(
               _vo.title,
               style: AppTextStyles.titleBlack,
               maxLines: 2,
             ),
             new Container(height: 4.0),
+
+            /// 更新时间
             new Expanded(
               child: new Text(
                 _vo.updateTime,
                 style: AppTextStyles.itemUpdateTime,
               ),
             ),
+
+            /// 更新到第几集
             new Text(
               _vo.updateEpisode,
-              style: AppTextStyles.itemUpdateEpisode,
+              style: AppTextStyles.itemUpdateEpisode.copyWith(
+                color: AppColors.selectUpdateEpisode(_vo.following),
+              ),
             ),
           ],
         ),
