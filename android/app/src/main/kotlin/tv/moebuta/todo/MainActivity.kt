@@ -1,4 +1,4 @@
-package com.moetun.bangumilist
+package tv.moebuta.todo
 
 import android.os.Bundle
 
