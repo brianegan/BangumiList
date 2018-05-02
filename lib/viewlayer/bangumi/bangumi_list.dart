@@ -1,6 +1,5 @@
 import 'package:bangumi_list/ui_framework.dart';
-
-import 'bangumi_items.dart';
+import 'package:bangumi_list/viewlayer/bangumi/bangumi_items.dart';
 
 class BangumiListPage extends StatelessWidget {
   @override
