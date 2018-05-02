@@ -7,26 +7,9 @@ var home = _bangumiList;
 
 var _bangumiList = new Handler(
   handlerFunc: (BuildContext context, Map<String, dynamic> params) {
-    return tmpTestData();
-//    return new BangumiListPage();
+    return new BangumiListPage();
   },
 );
-
-StoreProvider<AppState> tmpTestData() {
-  return new StoreProvider(
-    store: new Store(
-      null,
-      initialState: new AppState(
-        bangumiListState: new BangumiListState(list: [
-          TEST.testBangumiVO,
-          TEST.testBangumiVO,
-          TEST.testBangumiVO,
-        ]),
-      ),
-    ),
-    child: new BangumiListPage(),
-  );
-}
 
 var bangumiPage = new Handler(
   handlerFunc: (BuildContext context, Map<String, dynamic> params) {

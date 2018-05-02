@@ -1,4 +1,5 @@
 import 'ui_framework.dart';
+import 'viewlayer/pages.dart';
 
 void main() => runApp(new MyApp());
 
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           scaffoldBackgroundColor: Colors.white,
         ),
-        onGenerateRoute: initRouterGenerator(),
+        home: new BangumiListPage(),
+//        onGenerateRoute: initRouterGenerator(),
       ),
     );
   }
